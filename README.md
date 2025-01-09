@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS public.legislative_news (
     content TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+```
 
 ### Environment Variables
 
@@ -62,6 +62,7 @@ Create a `.env.local` file in the root directory and add the following:
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 NEWS_API_KEY=your-newsapi-key
+```
 
 ---
 
@@ -71,18 +72,22 @@ NEWS_API_KEY=your-newsapi-key
 ```bash
 git clone https://github.com/leorong/legislative-news-aggregator.git
 cd legislative-news-aggregator
+```
 
 ### Install dependencies:
 ```bash
 yarn
+```
 
 ### Start the development server:
 ```bash
 yarn dev
+```
 
 ### Open the app in your browser:
 ```plaintext
 http://localhost:3000
+```
 
 ---
 
@@ -116,6 +121,7 @@ src/
 ├── styles/
 │   ├── News.module.css     # CSS for news page
 │   ├── NewsAggregator.module.css # CSS for aggregator page
+```
 
 ## API Endpoints
 
