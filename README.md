@@ -62,6 +62,8 @@ NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 NEWS_API_KEY=your-newsapi-key
 
+---
+
 ## Installation
 
 ### Clone the repository:
@@ -80,6 +82,8 @@ yarn dev
 ### Open the app in your browser:
 ```plaintext
 http://localhost:3000
+
+---
 
 ## Usage
 
@@ -125,25 +129,7 @@ src/
 
 ---
 
-## Future Enhancements
-
-- Add user authentication for personalized news preferences.
-- Implement additional filtering and sorting options.
-- Improve UI/UX with advanced design elements.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## Contributors
-
-- **Leo Rong** - [GitHub Profile](https://github.com/leorong)
-
-# System Design Considerations
+## System Design Considerations
 
 ## News Aggregation
 ### Approach to Aggregating News Articles
@@ -183,52 +169,48 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-# Performance and Caching
+## Performance and Caching
 
-## Caching
+### Caching
 - **Avoid Redundant Fetches**:
   - Cache API responses for a configurable time using a caching layer like Redis or in-memory caching.
   - Avoid re-fetching articles if the requested time range has already been processed recently.
 - **Processed Articles**:
   - Cache enriched or preprocessed articles to minimize repeated computations, such as determining `state` and `topic`.
 
-## Pagination
+### Pagination
 - **Implementation**:
   - Use cursor-based pagination on endpoints like `/api/news` to fetch articles in chunks, improving performance and user experience.
 
 ---
 
-# Security Considerations
+## Security Considerations
 
-## Input Sanitization
+### Input Sanitization
 - Ensure that all user inputs (e.g., filters for `state`, `topic`, and `search`) are sanitized to prevent SQL injection or other attacks.
 - Use parameterized queries in all database operations.
 
-## Rate Limiting
+### Rate Limiting
 - **API Protection**:
   - Implement rate-limiting middleware on fetching endpoints (e.g., `/api/aggregate`) to prevent abuse.
   - Set limits on the number of requests allowed per user per minute.
 
 ---
 
-# Bonus Points
+## Bonus Points
 
-## Real-Time Updates
+### Real-Time Updates
 - **Simulated Real-Time Updates**:
   - Use WebSockets or Server-Sent Events (SSE) to notify users when new articles are published.
   - Alternatively, use a polling mechanism to check for updates periodically.
 
-## User Personalization
+### User Personalization
 - **Saved Preferences**:
   - Allow users to save their preferred `states` and `topics` in a database table linked to their user account.
   - Fetch personalized articles based on these preferences when users log in.
 
-## Newsletter Subscription
+### Newsletter Subscription
 - **Daily Email Summary**:
   - Provide an option for users to subscribe to a daily email summary of news articles.
   - Use tools like SendGrid or AWS SES to send emails.
   - Generate summaries by querying the latest articles for a user's saved `states` and `topics`.
-
----
-
-This README includes system design considerations, performance improvements, and additional features that enhance the usability and scalability of the project.
