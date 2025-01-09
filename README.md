@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS public.legislative_news (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 ### Environment Variables
 
 Create a `.env.local` file in the root directory and add the following:
