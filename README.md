@@ -140,15 +140,19 @@ src/
 
 ## News Aggregation
 ### Approach to Aggregating News Articles
-- **Multiple Sources**: Utilize APIs like [NewsAPI](https://newsapi.org/) to fetch articles from diverse sources. Multiple API integrations can ensure broader coverage.
+- **Multiple Sources**: 
+  - Utilize other APIs like [NewsAPI](https://newsapi.org/) to fetch articles from diverse sources. Modify /aggregate endpoint function to fetch from other API endpoint (add endpoint urlo as parameter to the /aggregate API - supported already).
+  - Add UI with a dropdown (with supported news API) to aggregate news from other channels.
 - **Deduplication**:
   - Articles are stored in a database with a unique constraint on the `url` column to prevent duplicate entries.
-  - Before insertion, the system checks if the `url` already exists in the database.
+  - If `url` is determined to not be 100% unique, we can use a combination of author, title, and publish_date to determine article duplication.
+  - Before insertion, the system checks for the uniqueness of a new article (currently using `url` to determine).
 - **Storage**:
   - Articles are stored in a PostgreSQL table (`legislative_news`) with fields such as `title`, `description`, `published_date`, `state`, `topic`, and more.
   - Use timestamps to track when articles were created and ensure fresh data is always available.
 - **Fresh Data**:
   - Fetch articles periodically using cron jobs or background workers to keep the data updated.
+  - More News API sources can be added to run backround aggregation jobs.
   - Use query parameters like `from` and `to` to fetch articles published within a specific time range.
 
 ---
@@ -172,7 +176,7 @@ src/
 - **Caching**:
   - Cache search results for frequently queried keywords using tools like Redis to reduce database load.
 - **Pagination**:
-  - Implement cursor-based pagination for efficient navigation through large datasets.
+  - Implement cursor-based pagination for efficient navigation through large datasets (already implmented).
 
 ---
 
@@ -208,7 +212,7 @@ src/
 
 ### Real-Time Updates
 - **Simulated Real-Time Updates**:
-  - Use WebSockets or Server-Sent Events (SSE) to notify users when new articles are published.
+  - Use WebSockets or Server-Sent Events (SSE) to notify users when new articles are published from the background aggregation jobs.
   - Alternatively, use a polling mechanism to check for updates periodically.
 
 ### User Personalization
