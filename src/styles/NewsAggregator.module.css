@@ -1,0 +1,128 @@
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.backLink {
+  color: #2563eb; /* Tailwind's blue-600 */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.apiDetails {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+}
+
+.apiDetails h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.apiDetails h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.apiDetails p,
+.apiDetails ul {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #374151; /* Tailwind's gray-700 */
+}
+
+.apiDetails ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #1d4ed8; /* Tailwind's blue-800 */
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.input {
+  border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+  border-radius: 0.375rem; /* Tailwind's rounded */
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+}
+
+.aggregateButton {
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aggregateButton:disabled {
+  background-color: #d1d5db; /* Tailwind's gray-300 */
+  cursor: not-allowed;
+}
+
+.aggregateButton:hover:not(:disabled) {
+  background-color: #1d4ed8; /* Tailwind's blue-800 */
+}
+
+.progress {
+  color: #f59e0b; /* Tailwind's yellow-500 */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.success {
+  color: #10b981; /* Tailwind's green-500 */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error {
+  color: #dc2626; /* Tailwind's red-600 */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
