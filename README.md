@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Legislative News Aggregator
+Description
+A web application that aggregates news articles related to state legislatures, lawmakers, and legislative actions. Users can filter news by state and topic, search for specific keywords, and view detailed articles. The project leverages the NewsAPI for fetching news and integrates with Supabase for database operations.
 
-## Getting Started
+Features
+News Aggregation: Fetch and aggregate news articles using the NewsAPI.
+Filtering: Filter articles by state and topic.
+Search Functionality: Search articles by keywords in the title or description.
+Pagination: Efficient pagination using a cursor-based approach.
+Detailed Article View: View full details of selected news articles.
+Technologies Used
+Frontend: Next.js (React framework)
+Backend: API routes in Next.js
+Database: Supabase
+Styling: CSS Modules
+API: NewsAPI
+Setup Instructions
+Prerequisites
+Node.js and npm/yarn installed.
+A NewsAPI account with an API key.
+A Supabase project with a database.
+Environment Variables
+Create a .env.local file in the root directory and add the following:
 
-First, run the development server:
+makefile
+Copy code
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+NEWS_API_KEY=your-newsapi-key
+Installation
+Clone the repository:
 
-```bash
+bash
+Copy code
+git clone https://github.com/username/repo-name.git
+cd repo-name
+Install dependencies:
+
+bash
+Copy code
+npm install
+# or
+yarn
+Start the development server:
+
+bash
+Copy code
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open the app in your browser:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+arduino
+Copy code
+http://localhost:3000
+Usage
+Aggregating News
+Navigate to the /news-aggregator page.
+Select a start date and end date.
+Click "Fetch Aggregated News" to pull articles from the NewsAPI.
+View the number of new articles saved to the database.
+Viewing News Articles
+Navigate to the /news page.
+Filter articles by state and topic.
+Search for articles by entering keywords.
+Click on a news title to view detailed information about the article.
+Project Structure
+graphql
+Copy code
+src/
+├── pages/
+│   ├── index.tsx           # Home page (Redirects to /news)
+│   ├── news.tsx            # News listing and filtering
+│   ├── news-aggregator.tsx # News aggregation page
+├── utils/
+│   ├── db.ts               # Supabase client setup
+│   ├── helpers.ts          # Utility functions for determining state and topic
+├── styles/
+│   ├── News.module.css     # CSS for news page
+│   ├── NewsAggregator.module.css # CSS for aggregator page
+API Endpoints
+News Aggregation: /api/aggregate
+Fetches news articles from NewsAPI and saves them to the database.
+Supports startDate and endDate query parameters.
+News Listing: /api/news
+Fetches news articles from the database.
+Supports filters for state, topic, and search.
+Implements cursor-based pagination using cursor and limit.
+Future Enhancements
+Add user authentication for personalized news preferences.
+Implement additional filtering and sorting options.
+Improve UI/UX with advanced design elements.
+License
+This project is licensed under the MIT License.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributors
+Your Name - GitHub Profile
+Feel free to contribute to this project by submitting issues or pull requests.
