@@ -384,7 +384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:15.1.4":
+"@next/eslint-plugin-next@npm:15.1.4, @next/eslint-plugin-next@npm:^15.1.4":
   version: 15.1.4
   resolution: "@next/eslint-plugin-next@npm:15.1.4"
   dependencies:
@@ -1173,9 +1173,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001579":
-  version: 1.0.30001690
-  resolution: "caniuse-lite@npm:1.0.30001690"
-  checksum: 10c0/646bd469032afa90400a84dec30a2b00a6eda62c03ead358117e3f884cda8aacec02ec058a6dbee5eaf9714f83e483b9b0eb4fb42febb8076569f5ca40f1d347
+  version: 1.0.30001692
+  resolution: "caniuse-lite@npm:1.0.30001692"
+  checksum: 10c0/fca5105561ea12f3de593f3b0f062af82f7d07519e8dbcb97f34e7fd23349bcef1b1622a9a6cd2164d98e3d2f20059ef7e271edae46567aef88caf4c16c7708a
   languageName: node
   linkType: hard
 
@@ -1755,7 +1755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^5.0.0":
+"eslint-plugin-react-hooks@npm:^5.0.0, eslint-plugin-react-hooks@npm:^5.1.0":
   version: 5.1.0
   resolution: "eslint-plugin-react-hooks@npm:5.1.0"
   peerDependencies:
@@ -2761,6 +2761,7 @@ __metadata:
   resolution: "legislative-news-aggregator@workspace:."
   dependencies:
     "@eslint/eslintrc": "npm:^3"
+    "@next/eslint-plugin-next": "npm:^15.1.4"
     "@supabase/supabase-js": "npm:^2.47.12"
     "@types/node": "npm:^20"
     "@types/pg": "npm:^8.11.10"
@@ -2768,6 +2769,7 @@ __metadata:
     "@types/react-dom": "npm:^19"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.1.4"
+    eslint-plugin-react-hooks: "npm:^5.1.0"
     next: "npm:15.1.4"
     pg: "npm:^8.13.1"
     postcss: "npm:^8"

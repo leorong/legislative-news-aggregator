@@ -60,7 +60,7 @@ export default async function handler(
     });
   } catch (error) {
     // Log any errors and return a 500 Internal Server Error response
-    console.error('Error fetching articles:', error.message);
+    console.error('Error fetching articles:', (error as Error)?.message || error);
     res.status(500).json({ error: 'Failed to fetch articles' });
   }
 }

@@ -1,7 +1,31 @@
-// Import necessary types and modules
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { supabase } from '@/utils/db';
 import { determineState, determineTopic } from '@/utils/helpers';
+
+// Define the type for incoming articles
+type IncomingArticle = {
+  title: string;
+  description: string | null;
+  content: string | null;
+  publishedAt: string;
+  url: string;
+  author?: string | null;
+  urlToImage?: string | null;
+};
+
+// Define the type for the mapped articles
+type MappedArticle = {
+  title: string;
+  description: string | null;
+  content: string | null;
+  published_date: string;
+  url: string;
+  state: string; // Assuming `determineState` returns a string
+  topic: string; // Assuming `determineTopic` returns a string
+  author: string | null;
+  image_url: string | null;
+  created_at: string;
+};
 
 // API route handler for aggregating news articles
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -48,7 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Map articles to match the database schema and filter out unwanted ones
     const filteredArticles = data.articles
-      .map((article: any) => ({
+      .map((article: IncomingArticle) => ({
         title: article.title,
         description: article.description,
         content: article.content,
@@ -60,7 +84,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         image_url: article.urlToImage || null,
         created_at: new Date().toISOString(), // Current timestamp for 'created_at'
       }))
-      .filter((article: any) => {
+      .filter((article: MappedArticle) => {
         // Exclude articles without an author or containing '[Removed]' in the title or description
         return (
           article.author !== null &&
@@ -83,7 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Upsert (insert or update) articles into the 'legislative_news' table
     const { error: upsertError } = await supabase
       .from('legislative_news')
-      .upsert(filteredArticles, { onConflict: 'url', returning: 'minimal' });
+      .upsert(filteredArticles, { onConflict: 'url' });
 
     if (upsertError) {
       throw new Error(upsertError.message);

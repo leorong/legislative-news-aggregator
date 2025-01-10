@@ -1,5 +1,8 @@
 # Legislative News Aggregator
 
+## Live Deployment
+https://legislative-news-aggregator-63lmsr331-leo-rongs-projects.vercel.app
+
 ## Description
 
 A web application that aggregates news articles related to state legislatures, lawmakers, and legislative actions. Users can filter news by state and topic, search for specific keywords, and view detailed articles. The project leverages the [NewsAPI](https://newsapi.org/) for fetching news and integrates with [Supabase](https://supabase.com/) for database operations.
