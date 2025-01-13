@@ -110,22 +110,6 @@ http://localhost:3000
 
 ---
 
-## Project Structure
-
-```plaintext
-src/
-├── pages/
-│   ├── index.tsx           # Home page (Redirects to /news)
-│   ├── news.tsx            # News listing and filtering
-│   ├── news-aggregator.tsx # News aggregation page
-├── utils/
-│   ├── db.ts               # Supabase client setup
-│   ├── helpers.ts          # Utility functions for determining state and topic
-├── styles/
-│   ├── News.module.css     # CSS for news page
-│   ├── NewsAggregator.module.css # CSS for aggregator page
-```
-
 ## API Endpoints
 
 ### News Aggregation: `/api/aggregate`
